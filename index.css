@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #e3f9ff;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 30%;
+    background-color: #3a4452;
+}
+
+.top {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    width: 95%;
+    height: 30vh;
+}
+
+.top p {
+    width: 100%;
+    margin: 1% 0%;
+    text-align: end;
+    font-size: 1.9rem;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+}
+
+#left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+
+#left img {
+    width: 40%;
+    height: 40%;
+}
+
+#right {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    color: #33ffd8;
+}
+
+#number {
+    margin-bottom: 0%;
+}
+
+#calculation {
+    width: 50%;
+}
+
+.bottom {
+    display: flex;
+    width: 95%;
+    height: 50vh;
+}
+
+.number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90vw;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #33ffd8;
+    font-size: 1.3rem;
+    width: 95%;
+    height: 22%;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18%;
+    height: 65%;
+    margin: 2% 3%;
+    box-shadow: 4px 4px 2px rgba(203, 231, 219, 0.748), -4px -4px 2px rgba(203, 224, 231, 0.748);
+    cursor: pointer;
+}
+
+.delete {
+    font-size: 2.5rem;
+}
+
+.box img {
+    width: 50%;
+    height: 50%;
+}
+
+.box-width {
+    width: 50%;
+    margin: auto;
+}
+
+#doto {
+    font-size: 3.5rem;
+}
+
+#equal {
+    width: 10%;
+}
+
+.box:hover {
+    opacity: 0.45;
+}
+
+@media(max-width: 425px){
+    .center{
+        width: 60%;
+    }
+}

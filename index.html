@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator callenge</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <div class="top">
+                <div class="main">
+                    <div id="left"></div>
+                    <div id="right">
+                        <p id="number">0</p>
+                        <p id="calulation">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="number">
+                    <div id="box-1" class="row5 row">
+                        <div class="box" onclick=select_number(7)>7</div>
+                        <div class="box" onclick=select_number(8)>8</div>
+                        <div class="box" onclick=select_number(9)>9</div>
+                        <div class="box" onclick=icon_click(0)><img
+                                src="https://www.shareicon.net/data/2015/08/24/90381_divide_512x512.png" alt="divide">
+                        </div>
+                    </div>
+                    <div id="box-2" class="row2 row">
+                        <div class="box" onclick=select_number(4)>4</div>
+                        <div class="box" onclick=select_number(5)>5</div>
+                        <div class="box" onclick=select_number(6)>6</div>
+                        <div class="box" onclick=icon_click(1)><img
+                                src="https://www.downloadclipart.net/thumb/multiplication-sign-png-clipart.png"
+                                alt="multiplication"></div>
+                    </div>
+                    <div id="box-3" class="row3 row">
+                        <div class="box" onclick=select_number(1)>1</div>
+                        <div class="box" onclick=select_number(2)>2</div>
+                        <div class="box" onclick=select_number(3)>3</div>
+                        <div class="box" onclick=icon_click(2)><img
+                                src="https://cdn-icons-png.flaticon.com/512/43/43625.png" alt="minus"></div>
+                    </div>
+                    <div id="box-4" class="row4 row">
+                        <div class="box delete" onclick=delete_code()>c</div>
+                        <div class="box" onclick=select_number(0)>0</div>
+                        <div class="box " onclick=delete_word()><img
+                                src="https://cdn2.iconfinder.com/data/icons/picons-essentials/57/delete_back-512.png"
+                                alt=""></div>
+                        <div class="box" onclick=icon_click(3)><img
+                                src="https://www.shareicon.net/data/128x128/2016/08/06/807524_plus_512x512.png"
+                                alt="plus sign"></div>
+                    </div>
+                    <div id="box-5" class="row1 row">
+                        <div class="box box-width" onclick=show_answer()><img
+                                src="https://pngimg.com/uploads/equals/equals_PNG35.png" alt="equal_sign">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function clear_code() {
+            const number_clear = document.getElementById(`left`);
+            number_clear.innerHTML = '';
+            if (button_click === true) {
+                const calculation_clear = document.getElementById(`calulation`);
+                calculation_clear.innerHTML = ``;
+                button_click = false;
+            }
+        }
+
+        let num1 = "";
+        let click = false;
+        let button_click = false;
+
+
+        function select_number(number) {
+            clear_code();
+            const container = document.getElementById(`calulation`);
+            num1 += number
+            container.innerHTML = num1;
+        }
+
+        const arr = [
+            "https://www.shareicon.net/data/2015/08/24/90381_divide_512x512.png",
+            "https://www.downloadclipart.net/thumb/multiplication-sign-png-clipart.png",
+            "https://cdn-icons-png.flaticon.com/512/43/43625.png",
+            "https://www.shareicon.net/data/128x128/2016/08/06/807524_plus_512x512.png"
+        ];
+
+        let value = 0;
+        function icon_click(index) {
+            const container = document.getElementById(`left`);
+            const change_number = document.getElementById(`calulation`);
+            const change_number_equal = document.getElementById(`number`);
+            const newimg = document.createElement('img');
+            newimg.setAttribute(`src`, arr[index]);
+            clear_code();
+            new_number = parseInt(num1);
+            change_number_equal.innerHTML = num1;
+            change_number.innerHTML = 0;
+            num1 = ``;
+            container.appendChild(newimg);
+            value = index;
+        }
+
+        function show_answer() {
+            if (value === 0) {
+                const container1 = document.getElementById(`calulation`);
+                const container2 = document.getElementById(`number`);
+                const n1 = container1.innerHTML;
+                const n2 = container2.innerHTML;
+                const ans = ((parseInt(n2)) / (parseInt(n1)));
+                container1.innerHTML = ans;
+                container2.innerHTML = ``;
+            }
+            else if (value === 1) {
+                const container1 = document.getElementById(`calulation`);
+                const container2 = document.getElementById(`number`);
+                const n1 = container1.innerHTML;
+                const n2 = container2.innerHTML;
+                const ans = ((parseInt(n1)) * (parseInt(n2)));
+                container1.innerHTML = ans;
+                container2.innerHTML = ``;
+            }
+            else if (value === 2) {
+                const container1 = document.getElementById(`calulation`);
+                const container2 = document.getElementById(`number`);
+                const n1 = container1.innerHTML;
+                const n2 = container2.innerHTML;
+                const ans = ((parseInt(n2)) - (parseInt(n1)));
+                container1.innerHTML = ans;
+                container2.innerHTML = ``;
+            }
+            else {
+                const container1 = document.getElementById(`calulation`);
+                const container2 = document.getElementById(`number`);
+                const n1 = container1.innerHTML;
+                const n2 = container2.innerHTML;
+                const ans = ((parseInt(n1)) + (parseInt(n2)));
+                container1.innerHTML = ans;
+                container2.innerHTML = ``;
+            }
+            num1 = ``;
+            button_click = true;
+        }
+
+        function delete_code() {
+            const container1 = document.getElementById(`calulation`);
+            const container2 = document.getElementById(`number`);
+            clear_code();
+            num1 = ``;
+            container1.innerHTML = 0;
+            container2.innerHTML = ``;
+        }
+        function delete_word() {
+            const container1 = document.getElementById(`calulation`);
+            const html = container1.innerHTML;
+            const modifiedHtml = html.substring(0, html.length - 1);
+            num1 = "";
+            num1 += modifiedHtml;
+            clear_code();
+            container1.innerHTML = modifiedHtml;
+        }
+    </script>
+</body>
+
+</html>
